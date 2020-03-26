@@ -1,0 +1,11 @@
+{
+    "body": "{\"category\":\"CAT2\",\"service\":\"SERV2\"}",
+    "pathParameters": {
+      "id": "58ded170-6f17-11ea-9d75-a57d33d37c73"
+    },
+    "requestContext": {
+      "identity": {
+        "cognitoIdentityId": "USER-SUB-1234"
+      }
+    }
+  }

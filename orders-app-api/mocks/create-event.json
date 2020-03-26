@@ -1,0 +1,8 @@
+{
+    "body": "{\"category\":\"CAT1\",\"service\":\"SERV1\",\"date\":\"DATE1\"}",
+    "requestContext": {
+      "identity": {
+        "cognitoIdentityId": "USER-SUB-1234"
+      }
+    }
+  }

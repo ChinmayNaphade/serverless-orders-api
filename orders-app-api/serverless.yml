@@ -23,10 +23,63 @@ provider:
   #environment:
   #  SAMPLE_ENV_VAR: ${env:SAMPLE_ENV_VAR}
 
+  # These environment variables are made available to our functions
+  # under process.env.
+  environment:
+    tableName: ${env:TABLE_NAME_ENV_VAR}
+      
+  # 'iamRoleStatements' defines the permission policy for the Lambda function.
+  # In this case Lambda functions are granted with permissions to access DynamoDB.
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:us-east-1:*:*"
+    
 functions:
-  hello:
-    handler: handler.hello
+  create:
+    handler: create.main
     events:
       - http:
-          path: hello
-          method: get
+          path: orders
+          method: post
+          cors: true
+          authorizer: aws_iam
+  get:
+    handler: get.main
+    events:
+      - http:
+        path: orders/{id}
+        method: get
+        cors: true
+        authorizer: aws_iam
+  list:
+    handler: list.main
+    events:
+      - http:
+        path: orders
+        method: get
+        cors: true
+        authorizer: aws_iam
+  update:
+    handler: update.main
+    events:
+      - http:
+        path: orders/{id}
+        method: put
+        cors: true
+        authorizer: aws_iam
+  delete:
+    handler: delete.main
+    events:
+      - http:
+        path: orders/{id}
+        method: delete
+        cors: true
+        authorizer: aws_iam
