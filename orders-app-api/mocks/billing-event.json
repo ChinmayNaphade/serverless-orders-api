@@ -1,0 +1,8 @@
+{
+    "body": "{\"source\":\"tok_visa\",\"orderid\":\"58ded170-6f17-11ea-9d75-a57d33d37c73\"}",
+    "requestContext": {
+      "identity": {
+        "cognitoIdentityId": "USER-SUB-1234"
+      }
+    }
+  }
