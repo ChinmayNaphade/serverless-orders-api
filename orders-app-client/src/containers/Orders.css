@@ -1,0 +1,14 @@
+@media all and (min-width: 480px) {
+  .Orders {
+    padding: 60px 0;
+  }
+
+  .Billing {
+    padding: 60px 0;
+  }
+
+  .Billing form {
+    margin: 0 auto;
+    max-width: 480px;
+  }
+}
